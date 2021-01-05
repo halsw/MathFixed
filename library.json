@@ -1,0 +1,18 @@
+{
+  "name": "MathFixed",
+  "description": "A template library with Math.h alternative functions for fixed point types",
+  "keywords": "math, Math.h, fixed, point, fixed point, arithmetic",
+  "authors":
+  {
+    "name": "Evan",
+    "url": "https://github.com/halsw"
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/halsw/MathFixed.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "version": "1.0",
+  "frameworks": "arduino"
+}
