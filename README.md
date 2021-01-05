@@ -1,5 +1,5 @@
 # Fixed Point Math Library for Arduino and Teensy
-A library with template functions that provide Math.h alternatives for fixed point types
+A library with template functions that provides Math.h alternatives for fixed point types
 
 Note that this library does not implement fixed point types but these are passed as parameters  
 The library also redirects calls to the original Math.h functions if it is used with the **double** and **float** types
