@@ -3,7 +3,7 @@
  * Usage: Tests speed performance of its functions
  * Dependecies: FixedPoints library
  * 
- * Version 1.0
+ * Version 1.0.1
  * Developed by Evan https://github.com/halsw
  *
  * This program is free software: you can redistribute it and/or modify

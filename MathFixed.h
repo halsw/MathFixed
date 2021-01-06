@@ -2,7 +2,7 @@
  * This file is part of the MathFixed library
  * Usage: A template library for the implementation
  *        of math functions for use by fixed point types
- * Version 1.0
+ * Version 1.0.1
  * Developed by Evan https://github.com/halsw
  *
  * This program is free software: you can redistribute it and/or modify
@@ -106,11 +106,11 @@ template <>
   }
 
 template <class T>
-  inline T fxisnan(T x) {
+  inline bool fxisnan(T x) {
     return x == fxnan<T>();
   }
-template <> inline double fxisnan(double x) {return isnan(x);}    
-template <> inline float fxisnan(float x) {return isnan(x);}    
+template <> inline bool fxisnan(double x) {return isnan(x);}    
+template <> inline bool fxisnan(float x) {return isnan(x);}    
 
 template <class T>
   inline T fxisinf(T x) {
