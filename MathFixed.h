@@ -56,7 +56,7 @@
  *   fxpow() raise a number to given exponent
  *   fxsinh() the hyperbolic sine
  *   fxsinh() the hyperbolic cosine
- *   fxtan() the hyperbolic tangent
+ *   fxtanh() the hyperbolic tangent
  */
  
 #ifndef FIXEDMATH_H

@@ -1,4 +1,4 @@
-# Fixed Point Math Library for Arduino and Teensy
+# [Fixed Point Math Library](https://github.com/halsw/MathFixed) for Arduino and Teensy
 A library with template functions that provides Math.h alternatives for fixed point types
 
 Note that this library does not implement fixed point types but these are passed as parameters  
