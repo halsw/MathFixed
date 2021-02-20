@@ -1,6 +1,6 @@
 {
   "name": "MathFixed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A template library with Math.h alternative functions for fixed point types",
   "keywords": "math, Math.h, fixed, point, fixed point, arithmetic",
   "authors":

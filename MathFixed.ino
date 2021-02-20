@@ -44,7 +44,7 @@
 
 #define PPRINT(X) Serial.print(#X ": ");\
   Serial.print(x##X);\
-  Serial.println("us");\ 
+  Serial.println("us");\
   x##X = 0.0;
 
 unsigned int wait() {

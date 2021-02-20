@@ -2,7 +2,7 @@
  * This file is part of the MathFixed library
  * Usage: A template library for the implementation
  *        of math functions for use by fixed point types
- * Version 1.0.1
+ * Version 1.0.2
  * Developed by Evan https://github.com/halsw
  *
  * This program is free software: you can redistribute it and/or modify
@@ -194,10 +194,19 @@ template <> inline double fxsqrt(double x) {return sqrt(x);}
 template <> inline float fxsqrt(float x) {return sqrt(x);}    
 
 template <class T>
-  inline T fxhypot(T x, T y) {
+  T fxhypot(T x, T y) {
+  T ax,ay;
   if (x == fxnan<T>()) return x;
   if (y == fxnan<T>()) return y;
-  return fxsqrt(x*x + y*y);
+  ax=fxabs(x);
+  ay=fxabs(y);
+  if (ax > ay) {
+    ay /= ax;
+    return ax*fxsqrt(1.0+ay*ay);
+  }
+  if (ay == 0.0) return 0.0;
+  ax /= ay;
+  return ay*fxsqrt(1.0+ax*ax);
 }    
 template <> inline double fxhypot(double x, double y) {return hypot(x,y);}    
 template <> inline float fxhypot(float x, float y) {return hypot(x,y);}    
