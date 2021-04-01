@@ -3,7 +3,7 @@
  * Usage: Tests speed performance of its functions
  * Dependecies: FixedPoints library
  * 
- * Version 1.0.1
+ * Version 1.1.0
  * Developed by Evan https://github.com/halsw
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,17 +21,13 @@
 #include "MathFixed.h"
 #include <FixedPoints.h>
 
-//The number of integer bits
-#define TFIXED_INT 7
-
-//The number of fractional bits
-#define TFIXED_FRAC 8
-
 //Define the type used for calculations
-#define TFIXED SFixed<TFIXED_INT, TFIXED_FRAC>
+#define TFIXED SFixed<7, 8>
+
+const PROGMEM TFIXED a[2] = {fx(1.1), fx(0.9)};
 
 //The period of each cycle
-#define PERIOD_MS 10
+#define PERIOD_MS 15
 
 //The number of cycles for speed testing
 #define CYCLES 1000
@@ -45,7 +41,7 @@
 #define PPRINT(X) Serial.print(#X ": ");\
   Serial.print(x##X);\
   Serial.println("us");\
-  x##X = 0.0;
+  x##X = 0.0
 
 unsigned int wait() {
   static unsigned int load = 0;
@@ -65,8 +61,7 @@ unsigned int wait() {
 void setup() {
   Serial.begin(115200);
   randomSeed(analogRead(0)); //assuming A0 is not connected
-  fxibits<TFIXED>(TFIXED_INT); //Define integer bits in the library
-  fxfbits<TFIXED>(TFIXED_FRAC);//Define fractional bits in the library
+  fxalmost((TFixed)100); //Define the acurracy of fxequ() comparison
   Serial.print("MathFixed library test, please wait ");
   Serial.print((unsigned long)CYCLES*PERIOD_MS/1000);
   Serial.println("s between updates...");  
@@ -80,13 +75,17 @@ void loop() {
   int load, t;
   PROFILE(fxisnan,(x) );
   PROFILE(fxabs,  (x) );
+  PROFILE(fxequ,  (x, y) );
+  PROFILE(fxsign, (x) );
+  PROFILE(fxcopysign, (x,y) );
   PROFILE(fxmin,  (x,y) );
   PROFILE(fxmax,  (x,y) );
-  PROFILE(fxmins, (&x,&y) );
-  PROFILE(fxmaxs, (&x,&y) );
+  PROFILE(fxmins, (x,y) );
+  PROFILE(fxmaxs, (x,y) );
   PROFILE(fxsq,   (x) );
   PROFILE(fxsqrt, (x) );
   PROFILE(fxhypot,(x,y) );
+  PROFILE(fxnorm, (&x) );
   PROFILE(fxcbrt, (x) );
   PROFILE(fxfloor,(x) );
   PROFILE(fxceil, (x) );
@@ -113,6 +112,7 @@ void loop() {
   PROFILE(fxsinh, (x) );
   PROFILE(fxcosh, (x) );
   PROFILE(fxtanh, (x) );
+  PROFILE(fxpgmread, (a) );
   load=wait()>>8;
   if (sample++ > CYCLES) {
     sample = 1;
@@ -120,6 +120,9 @@ void loop() {
     Serial.println(load);
     PPRINT(fxisnan);
     PPRINT(fxabs);
+    PPRINT(fxequ);
+    PPRINT(fxsign);
+    PPRINT(fxcopysign);
     PPRINT(fxmax);
     PPRINT(fxmin);
     PPRINT(fxmaxs);
@@ -127,6 +130,7 @@ void loop() {
     PPRINT(fxsq);
     PPRINT(fxsqrt);
     PPRINT(fxhypot);
+    PPRINT(fxnorm);
     PPRINT(fxcbrt);
     PPRINT(fxfloor);
     PPRINT(fxceil);
@@ -153,5 +157,6 @@ void loop() {
     PPRINT(fxsinh);
     PPRINT(fxcosh);
     PPRINT(fxtanh);
+    PPRINT(fxpgmread);
   }
 }

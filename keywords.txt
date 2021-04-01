@@ -1,9 +1,10 @@
-fxibits	KEYWORD1
-fxfbits	KEYWORD1
 fxnan	KEYWORD1
 fxisnan	KEYWORD1
 fxisinf	KEYWORD1
 fxabs	KEYWORD1
+fxequ	KEYWORD1
+fxsign	KEYWORD1
+fxcopysign	KEYWORD1
 fxmax	KEYWORD1
 fxmin	KEYWORD1
 fxmaxs	KEYWORD1
@@ -11,6 +12,7 @@ fxmins	KEYWORD1
 fxsq	KEYWORD1
 fxsqrt	KEYWORD1
 fxhypot	KEYWORD1
+fxnorm	KEYWORD1
 fxcbrt	KEYWORD1
 fxfloor	KEYWORD1
 fxceil	KEYWORD1
@@ -35,5 +37,7 @@ fxlog	KEYWORD1
 fxlog10	KEYWORD1
 fxpow	KEYWORD1
 fxsinh	KEYWORD1
-fxsinh	KEYWORD1
-fxtan	KEYWORD1
+fxcosh	KEYWORD1
+fxtanh	KEYWORD1
+fx 	KEYWORD1
+fxpgmread	KEYWORD1
